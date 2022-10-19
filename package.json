@@ -1,0 +1,40 @@
+{
+    "name": "wdio_mocha_framework",
+    "version": "2.0.0",
+    "description": "This framework is to automate web applications using webdriver.io with Javascript and mocha",
+    "main": "index.js",
+    "author": "Sriram K",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/cli": "^7.19.3",
+        "@babel/core": "^7.19.3",
+        "@babel/preset-env": "^7.19.3",
+        "@babel/register": "^7.18.9",
+        "@wdio/allure-reporter": "^7.25.1",
+        "@wdio/cli": "^7.25.1",
+        "@wdio/dot-reporter": "^7.25.1",
+        "@wdio/local-runner": "^7.25.1",
+        "@wdio/mocha-framework": "^7.25.1",
+        "@wdio/selenium-standalone-service": "^7.25.1",
+        "@wdio/spec-reporter": "^7.25.1",
+        "wdio-docker-service": "^3.2.1",
+        "wdio-video-reporter": "^3.2.3",
+        "webdriverio": "^7.25.1"
+    },
+    "scripts": {
+        "test": "wdio run ./conf/wdio.conf.js",
+        "checkupdates": "npx npm-check-updates -u",
+        "cleanup": "rmdir /Q /S reports",
+        "generateAllureReport": "allure generate ./reports/video-reports/allure-raw -o ./reports/video-reports/allure-report --clean && allure open ./reports/video-reports/allure-report",
+        "pretest:docker": "docker-compose up -d",
+        "test:docker": "npx wdio ./conf/wdio.docker.conf.js",
+        "posttest:docker": "docker-compose down"
+    },
+
+    "keywords": [
+        "WebdriverIO",
+        "javascript",
+        "mocha framework",
+        "docker"
+    ]
+}
